@@ -33,15 +33,15 @@
     <section class="hobby">
       <h2 class="hobby__heading">🌟 趣味紹介コーナー！</h2>
       <div class="hobby__list">
-        <div class="hobby__card hobby__card--pop">
+        <div class="hobby__card hobby__card--pop" data-detail="プログラミングが大好き！ScratchやPythonでゲームを作って遊んでいます！">
           <div class="hobby__emoji">💻</div>
           <p class="hobby__text">プログラミング</p>
         </div>
-        <div class="hobby__card hobby__card--pop">
+        <div class="hobby__card hobby__card--pop" data-detail="寝るのが一番のしあわせ。お昼寝タイムは最高のごほうび！">
           <div class="hobby__emoji">🛏️</div>
           <p class="hobby__text">寝ること</p>
         </div>
-        <div class="hobby__card hobby__card--pop">
+        <div class="hobby__card hobby__card--pop" data-detail="虫とり網を持って近くの公園へ！カブトムシやトンボが大好き！">
           <div class="hobby__emoji">🐝</div>
           <p class="hobby__text">虫を捕まえる</p>
         </div>
@@ -52,6 +52,38 @@
   <footer class="footer">
     <p class="footer__text">© 2025 蒋 騰淵 - また見てね！😄</p>
   </footer>
+
+  <!-- モーダル -->
+  <div class="modal" id="modal">
+    <div class="modal__content">
+      <span class="modal__close" id="modal-close">×</span>
+      <p class="modal__text" id="modal-text">ここに詳細が表示されます</p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("modal");
+    const modalText = document.getElementById("modal-text");
+    const modalClose = document.getElementById("modal-close");
+
+    document.querySelectorAll(".hobby__card").forEach(card => {
+      card.addEventListener("click", () => {
+        const detail = card.getAttribute("data-detail");
+        modalText.textContent = detail;
+        modal.classList.add("modal--show");
+      });
+    });
+
+    modalClose.addEventListener("click", () => {
+      modal.classList.remove("modal--show");
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("modal--show");
+      }
+    });
+  </script>
 
 </body>
 </html>

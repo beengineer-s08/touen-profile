@@ -1,0 +1,164 @@
+/* --- CSS変数定義 --- */
+:root {
+  --color-bg: #b3fded;
+  --color-main: #fd792d;
+  --color-sub: #6a0572;
+  --color-accent: #ffce00;
+  --font-main: 'Comic Neue', cursive, sans-serif;
+}
+
+/* --- リセットと基本 --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: #333;
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+/* --- Header --- */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header__title {
+  font-size: 2rem;
+  color: var(--color-main);
+}
+
+.header__subtitle {
+  font-size: 1rem;
+  color: var(--color-sub);
+  margin-top: 0.5rem;
+}
+
+/* --- Profile Section --- */
+.profile {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-left: 5px solid var(--color-main);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.profile__heading {
+  font-size: 1.4rem;
+  color: var(--color-sub);
+  margin-bottom: 1rem;
+}
+
+/* プロフィール全体のレイアウト */
+.profile__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile__list {
+  list-style: none;
+}
+
+.profile__item {
+  margin-bottom: 0.6rem;
+}
+
+.profile__label {
+  font-weight: bold;
+}
+
+/* プロフィール画像 */
+.profile__image-wrapper {
+  flex-shrink: 0;
+}
+
+.profile__image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-main);
+}
+
+/* --- Hobby Section --- */
+.hobby {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hobby__heading {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.hobby__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.hobby__card {
+  background-color: #fff;
+  border: 2px dashed var(--color-sub);
+  padding: 1rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.hobby__card--pop:hover {
+  transform: scale(1.05);
+  background-color: var(--color-accent);
+}
+
+.hobby__emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hobby__text {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--color-sub);
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 3rem;
+}
+
+/* --- Responsive Layout --- */
+@media (min-width: 768px) {
+  .profile__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .profile__list {
+    flex: 1;
+    text-align: left;
+  }
+
+  .profile__image-wrapper {
+    margin-left: 2rem;
+  }
+
+  .hobby__list {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
